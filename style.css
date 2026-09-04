@@ -1,0 +1,250 @@
+:root {
+  --bg: #fdf6ec;
+  --card: #ffffff;
+  --text: #3a2c22;
+  --muted: #8a7a6d;
+  --accent: #d96c3f;
+  --accent-dark: #b8532c;
+  --success: #4c9a6a;
+  --border: #f0e2d0;
+  --shadow: 0 4px 16px rgba(58, 44, 34, 0.08);
+
+  --saj: #e0a336;
+  --manoushe: #c85a3f;
+  --falafel: #6b9e5b;
+  --foul: #4f7ea8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 48px;
+}
+
+.page {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+header .emoji {
+  font-size: 42px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+}
+
+.vote-btn {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 12px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.vote-btn:active {
+  transform: scale(0.96);
+}
+
+.vote-btn .icon {
+  font-size: 2.2rem;
+}
+
+.vote-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.vote-btn[data-option="Saj"]:hover { border-color: var(--saj); }
+.vote-btn[data-option="Manoushe"]:hover { border-color: var(--manoushe); }
+.vote-btn[data-option="Falafel"]:hover { border-color: var(--falafel); }
+.vote-btn[data-option="Foul"]:hover { border-color: var(--foul); }
+
+.status {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 16px;
+  min-height: 1.2em;
+  text-align: center;
+}
+
+.status.error {
+  color: #c0392b;
+}
+
+.voted-card {
+  width: 100%;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.voted-card .checkmark {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.voted-card p {
+  font-size: 1.1rem;
+  margin: 0 0 20px;
+}
+
+.voted-card strong {
+  color: var(--accent-dark);
+}
+
+.btn-link {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.btn-link:active {
+  background: var(--accent-dark);
+}
+
+/* Results page */
+
+.total-count {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.total-count strong {
+  color: var(--text);
+  font-size: 1.4rem;
+}
+
+.results-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.result-row {
+  width: 100%;
+}
+
+.result-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.result-label .pct {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.bar-track {
+  background: var(--border);
+  border-radius: 10px;
+  height: 22px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  transition: width 0.4s ease;
+  min-width: 2px;
+}
+
+.bar-fill[data-option="Saj"] { background: var(--saj); }
+.bar-fill[data-option="Manoushe"] { background: var(--manoushe); }
+.bar-fill[data-option="Falafel"] { background: var(--falafel); }
+.bar-fill[data-option="Foul"] { background: var(--foul); }
+
+.back-link {
+  margin-top: 32px;
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  margin-right: 6px;
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.live-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 20px;
+}

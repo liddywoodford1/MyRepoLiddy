@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>Results — What's for Lunch?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="emoji">📊</div>
+      <h1>Results</h1>
+      <p class="subtitle">What's for lunch today?</p>
+    </header>
+
+    <p class="live-label"><span class="live-dot"></span>Live — updates automatically</p>
+
+    <div class="total-count">
+      <strong id="totalCount">0</strong> vote(s) so far
+    </div>
+
+    <div id="resultsList" class="results-list">
+      <div class="result-row" data-option="Saj">
+        <div class="result-label">
+          <span>🫓 Saj</span>
+          <span class="pct" data-pct="Saj">0%</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" data-option="Saj" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="result-row" data-option="Manoushe">
+        <div class="result-label">
+          <span>🍕 Manoushe</span>
+          <span class="pct" data-pct="Manoushe">0%</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" data-option="Manoushe" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="result-row" data-option="Falafel">
+        <div class="result-label">
+          <span>🧆 Falafel</span>
+          <span class="pct" data-pct="Falafel">0%</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" data-option="Falafel" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="result-row" data-option="Foul">
+        <div class="result-label">
+          <span>🥣 Foul</span>
+          <span class="pct" data-pct="Foul">0%</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" data-option="Foul" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <a class="back-link" href="index.html">&larr; Back to voting</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="config.js"></script>
+  <script src="supabaseClient.js"></script>
+  <script src="results.js"></script>
+</body>
+</html>
